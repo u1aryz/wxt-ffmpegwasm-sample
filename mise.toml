@@ -1,0 +1,18 @@
+[tools]
+bun = "1.2.23"
+
+[hooks]
+postinstall = "bun i --frozen-lockfile"
+
+[tasks.format]
+run = ["bun run format", "bun run typecheck"]
+alias = "lint"
+
+[tasks.dev]
+run = "bun run dev"
+
+[tasks.build]
+run = "bun run build"
+
+[tasks.zip]
+run = ["bun run zip", "bun run zip:firefox"]
