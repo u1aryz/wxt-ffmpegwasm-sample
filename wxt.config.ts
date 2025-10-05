@@ -7,5 +7,16 @@ export default defineConfig({
 	outDir: "output",
 	vite: () => ({
 		plugins: [tailwindcss()],
+		optimizeDeps: {
+			exclude: ["@ffmpeg/ffmpeg", "@ffmpeg/util"],
+		},
 	}),
+	manifest: {
+		web_accessible_resources: [
+			{
+				resources: ["ffmpeg/*.js", "ffmpeg/*.wasm"],
+				matches: ["<all_urls>"],
+			},
+		],
+	},
 });
