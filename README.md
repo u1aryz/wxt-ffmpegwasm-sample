@@ -9,15 +9,10 @@ A sample browser extension demonstrating how to load and use [FFmpeg.wasm](https
 - React + TypeScript + Tailwind CSS
 - Simple popup UI to load FFmpeg
 
-## Prerequisites
-
-- Node.js (v18 or higher recommended)
-- npm or pnpm
-
 ## Installation
 
 ```bash
-npm install
+bun install
 ```
 
 ## Development
@@ -25,13 +20,13 @@ npm install
 ### Chrome/Chromium
 
 ```bash
-npm run dev
+bun run dev
 ```
 
 ### Firefox
 
 ```bash
-npm run dev:firefox
+bun run dev:firefox
 ```
 
 The extension will be loaded in development mode with hot-reload enabled.
@@ -41,13 +36,13 @@ The extension will be loaded in development mode with hot-reload enabled.
 ### Chrome/Chromium
 
 ```bash
-npm run build
+bun run build
 ```
 
 ### Firefox
 
 ```bash
-npm run build:firefox
+bun run build:firefox
 ```
 
 Built extension will be output to the `output/` directory.
@@ -55,7 +50,7 @@ Built extension will be output to the `output/` directory.
 ## Create Distribution Package
 
 ```bash
-npm run zip
+bun run zip
 ```
 
 ## Project Structure
@@ -69,7 +64,7 @@ wxt-ffmpegwasm-sample/
 │       ├── main.tsx        # Popup entry point
 │       └── App.tsx         # Popup UI (FFmpeg loader)
 ├── public/                 # Static assets
-├── wxt.config.ts          # WXT configuration
+├── wxt.config.ts           # WXT configuration
 └── package.json
 ```
 
