@@ -1,11 +1,11 @@
-# WXT FFmpeg.wasm Sample
+# WXT ffmpeg.wasm Sample
 
-A sample browser extension demonstrating how to load and use [FFmpeg.wasm](https://github.com/ffmpegwasm/ffmpeg.wasm) in a WXT-based browser extension.
+A sample browser extension demonstrating how to load and use [ffmpeg.wasm](https://github.com/ffmpegwasm/ffmpeg.wasm) in a WXT-based browser extension.
 
 ## Features
 
 - Browser extension built with [WXT](https://wxt.dev/)
-- FFmpeg.wasm integration with proper web-accessible resources configuration
+- ffmpeg.wasm integration with proper web-accessible resources configuration
 - React + TypeScript + Tailwind CSS
 - Simple popup UI to load FFmpeg
 
@@ -72,7 +72,7 @@ wxt-ffmpegwasm-sample/
 
 ### WXT Config (`wxt.config.ts`)
 
-The configuration includes important settings for FFmpeg.wasm:
+The configuration includes important settings for ffmpeg.wasm:
 
 - **Web Accessible Resources**: Exposes FFmpeg core files (`ffmpeg/*.js`, `ffmpeg/*.wasm`) to allow the extension to load them
 - **Vite optimizeDeps**: Excludes `@ffmpeg/ffmpeg` and `@ffmpeg/util` from Vite's dependency optimization
@@ -94,7 +94,7 @@ await ffmpeg.load({
 ## Tech Stack
 
 - [WXT](https://wxt.dev/) - Browser extension framework
-- [FFmpeg.wasm](https://github.com/ffmpegwasm/ffmpeg.wasm) - FFmpeg compiled to WebAssembly
+- [ffmpeg.wasm](https://github.com/ffmpegwasm/ffmpeg.wasm) - FFmpeg compiled to WebAssembly
 - [React 19](https://react.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
