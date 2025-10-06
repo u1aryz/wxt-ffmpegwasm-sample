@@ -12,8 +12,8 @@ export function useFFmpeg(): UseFFmpegReturnType {
 	const ffmpegRef = useRef(new FFmpeg());
 	const { error, loading } = useAsync(async () => {
 		const ffmpeg = ffmpegRef.current;
-		const coreURL = chrome.runtime.getURL("ffmpeg/ffmpeg-core.js");
-		const wasmURL = chrome.runtime.getURL("ffmpeg/ffmpeg-core.wasm");
+		const coreURL = browser.runtime.getURL("/ffmpeg/ffmpeg-core.js");
+		const wasmURL = browser.runtime.getURL("/ffmpeg/ffmpeg-core.wasm");
 		await ffmpeg.load({
 			coreURL,
 			wasmURL,
