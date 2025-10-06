@@ -1,25 +1,20 @@
-import { FFmpeg } from "@ffmpeg/ffmpeg";
-
 function App() {
 	const [messages, setMessages] = useState<string[]>([]);
-	const ffmpegRef = useRef(new FFmpeg());
+	const { error, loading, ffmpeg } = useFFmpeg();
 
-	const load = async () => {
-		const ffmpeg = ffmpegRef.current;
-		const coreURL = chrome.runtime.getURL("/ffmpeg/ffmpeg-core.js");
-		const wasmURL = chrome.runtime.getURL("/ffmpeg/ffmpeg-core.wasm");
-
+	useEffect(() => {
+		if (loading || !ffmpeg) {
+			return;
+		}
 		ffmpeg.on("log", ({ message, type }) => {
 			if (type === "stdout") {
 				setMessages((prevMessages) => [...prevMessages, message]);
 			}
 		});
-		await ffmpeg.load({
-			coreURL,
-			wasmURL,
-		});
+	}, [ffmpeg, loading]);
 
-		await ffmpeg.exec(["-version"]);
+	const handleClick = async () => {
+		ffmpeg?.exec(["-version"]);
 	};
 
 	return (
@@ -35,11 +30,12 @@ function App() {
 				<button
 					className="rounded-lg bg-blue-600 px-6 py-2 font-semibold text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:bg-gray-400"
 					type="button"
-					onClick={load}
+					onClick={handleClick}
 				>
-					Load
+					Display ffmpeg version
 				</button>
 			)}
+			{error && <p className="text-red-500">{error.message}</p>}
 		</div>
 	);
 }
